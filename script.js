@@ -21,8 +21,9 @@ function generateQuote() {
   .then(function(data) {
     let number = Math.floor(Math.random() * data.length);
     console.log(data[number])
-    quote.innerHTML = data[number].quote
-    author.innerHTML = data[number].author
+    quote.innerHTML = data[number].quote;
+    author.innerHTML = data[number].author;
+    
   })
   .catch(function(error){
   //if there is an error
