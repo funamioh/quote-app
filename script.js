@@ -20,7 +20,7 @@ function generateQuote() {
   })
   .then(function(data) {
     let number = Math.floor(Math.random() * data.length);
-
+    console.log(data[number])
     quote.innerHTML = data[number].quote
     author.innerHTML = data[number].author
   })
