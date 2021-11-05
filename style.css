@@ -31,12 +31,15 @@ h3 {
   letter-spacing: 2px;
 }
 
-.joke {
+.quote {
   font-size: 30px;
   letter-spacing: 1px;
   line-height: 40px;
   margin: 50px auto;
   max-width: 800px;
+}
+.author {
+  margin: 20px auto;
 }
 
 .btn {

@@ -1,17 +1,30 @@
-const jokeEl = document.getElementById('joke')
-const jokeBtn = document.getElementById('jokeBtn')
+const quote = document.getElementById('quote')
+const quoteBtn = document.getElementById('quoteBtn')
+const author = document.getElementById('author')
 
-jokeBtn.addEventListener('click', generateJoke)
+let url = "https://type.fit/api/quotes";
 
-generateJoke()
+quoteBtn.addEventListener('click', generateQuote)
 
-function generateJoke() {
-    fetch("https://type.fit/api/quotes")
+generateQuote()
+
+function generateQuote() {
+    const config = {
+      headers: {
+        Accept: 'application/json',
+      },
+    }
+    fetch(url, config)
   .then(function(response) {
     return response.json();
   })
   .then(function(data) {
-    console.log(data);
+    let number = Math.floor(Math.random() * data.length);
+
+    quote.innerHTML = data[number].quote
+    author.innerHTML = data[number].author
+  })
+  .catch(function(error){
+  //if there is an error
   });
-  jokeEl.innerHTML = data.joke
 }
