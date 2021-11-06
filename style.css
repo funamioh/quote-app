@@ -68,3 +68,8 @@ h2 {
 .btn:focus {
   outline: none;
 }
+
+footer {
+  font-family: "Poppins", sans-serif;
+  margin: 15px 0;
+}
