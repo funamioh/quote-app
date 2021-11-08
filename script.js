@@ -21,11 +21,26 @@ function generateQuote() {
   .then(function(data) {
     let number = Math.floor(Math.random() * data.length);
     console.log(data[number])
-    quote.innerHTML = data[number].text;
-    author.innerHTML = data[number].author;
-    
-  })
+    const quoteText = data[number].text;
+    const quoteAuthor = data[number].author;
+    quote.innerHTML = quoteText;
+    if (quoteAuthor === null) {
+      author.innerHTML = "- " + "Anonymous" + " -";
+    } else {
+    author.innerHTML = "- " + quoteAuthor + " -";
+    }
+  })  
   .catch(function(error){
   //if there is an error
   });
 }
+
+const tweetBtn = document.getElementById('tweetBtn')
+
+tweetBtn.addEventListener('click', shareTweet)
+
+shareTweet()
+
+function shareTweet(event) {
+ window.open("https://twitter.com/intent/tweet?text=" + quote + " -" + author);
+};
