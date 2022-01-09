@@ -19,7 +19,7 @@ function generateQuote() {
       return response.json();
     })
     .then(function (data) {
-      let number = Math.floor(Math.random() * data.length);
+      var number = Math.floor(Math.random() * data.length);
       console.log(data[number]);
       var quoteText = data[number].text;
       var quoteAuthor = data[number].author;
