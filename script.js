@@ -36,11 +36,12 @@ function generateQuote() {
     });
   tweetBtn.addEventListener("click", shareTweet);
 
-  shareTweet();
-
   function shareTweet(event) {
+    var quoteText = quote.innerText;
+    var quoteAuthor = author.innerText;
+
     const twitterUrl =
-      "https://twitter.com/intent/tweet?text=${quoteText} -${quoteAuthor}";
+      `https://twitter.com/intent/tweet?text=${quoteText} -${quoteAuthor}`;
     window.open(twitterUrl, "_blank");
   }
 }
