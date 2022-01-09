@@ -1,6 +1,7 @@
 const quote = document.getElementById("quote");
 const quoteBtn = document.getElementById("quoteBtn");
 const author = document.getElementById("author");
+const tweetBtn = document.getElementById("tweetBtn");
 
 let url = "https://type.fit/api/quotes";
 
@@ -33,20 +34,17 @@ function generateQuote() {
     .catch(function (error) {
       //if there is an error
     });
-}
+  tweetBtn.addEventListener("click", shareTweet);
 
-const tweetBtn = document.getElementById("tweetBtn");
+  shareTweet();
 
-tweetBtn.addEventListener("click", shareTweet);
-
-shareTweet();
-
-function shareTweet(event) {
-  let tweetURL = "https://twitter.com/intent/tweet?text=";
-  let quoteURI = encodeURIComponent(
-    `"${quote.quoteText}" - ${quote.quoteAuthor}`
-  );
-  tweetURL += quoteURI;
-
-  window.open(tweetURL, "_new");
+  function shareTweet(event) {
+    var quoteText = data[number].text;
+    var quoteAuthor = data[number].author;
+    let tweetURL = "https://twitter.com/intent/tweet?text=";
+    let quoteURI = encodeURIComponent(`"${quoteText}" - ${quoteAuthor}`);
+    tweetURL += quoteURI;
+    window.open(tweetURL, "_new");
+    console.log(`"${quote.quoteText}" - ${quote.quoteAuthor}`);
+  }
 }
