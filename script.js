@@ -36,8 +36,6 @@ function generateQuote() {
     });
   tweetBtn.addEventListener("click", shareTweet);
 
-  shareTweet();
-
   function shareTweet(event) {
     const twitterUrl =
       "https://twitter.com/intent/tweet?text=${quoteText} -${quoteAuthor}";
