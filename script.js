@@ -39,10 +39,8 @@ function generateQuote() {
   shareTweet();
 
   function shareTweet(event) {
-    let tweetURL = "https://twitter.com/intent/tweet?text=";
-    let quoteURI = encodeURIComponent(`"${quoteText}" - ${quoteAuthor}`);
-    tweetURL += quoteURI;
-    window.open(tweetURL, "_new");
-    console.log(`"${quote.quoteText}" - ${quote.quoteAuthor}`);
+    const twitterUrl =
+      "https://twitter.com/intent/tweet?text=${quoteText} -${quoteAuthor}";
+    window.open(twitterUrl, "_blank");
   }
 }
