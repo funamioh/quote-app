@@ -42,7 +42,11 @@ tweetBtn.addEventListener("click", shareTweet);
 shareTweet();
 
 function shareTweet(event) {
-  const twitterUrl =
-    "https://twitter.com/intent/tweet?text=${quoteText} -${quoteAuthor}";
-  window.open(twitterUrl, "_blank");
+  let tweetURL = "https://twitter.com/intent/tweet?text=";
+  let quoteURI = encodeURIComponent(
+    `"${quote.quoteText}" - ${quote.quoteAuthor}`
+  );
+  tweetURL += quoteURI;
+
+  window.open(tweetURL, "_new");
 }
