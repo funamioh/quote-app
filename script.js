@@ -39,8 +39,6 @@ function generateQuote() {
   shareTweet();
 
   function shareTweet(event) {
-    var quoteText = data[number].text;
-    var quoteAuthor = data[number].author;
     let tweetURL = "https://twitter.com/intent/tweet?text=";
     let quoteURI = encodeURIComponent(`"${quoteText}" - ${quoteAuthor}`);
     tweetURL += quoteURI;
