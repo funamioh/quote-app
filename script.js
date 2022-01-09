@@ -21,8 +21,8 @@ function generateQuote() {
     .then(function (data) {
       let number = Math.floor(Math.random() * data.length);
       console.log(data[number]);
-      const quoteText = data[number].text;
-      const quoteAuthor = data[number].author;
+      var quoteText = data[number].text;
+      var quoteAuthor = data[number].author;
       quote.innerHTML = quoteText;
       if (quoteAuthor === null) {
         author.innerHTML = "- " + "Anonymous" + " -";
