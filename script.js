@@ -10,6 +10,9 @@ quoteBtn.addEventListener("click", generateQuote);
 generateQuote();
 
 function generateQuote() {
+  var quoteText = "";
+  var quoteAuthor = "";
+
   const config = {
     headers: {
       Accept: "application/json",
@@ -22,8 +25,8 @@ function generateQuote() {
     .then(function (data) {
       var number = Math.floor(Math.random() * data.length);
       console.log(data[number]);
-      var quoteText = data[number].text;
-      var quoteAuthor = data[number].author;
+      quoteText = data[number].text;
+      quoteAuthor = data[number].author;
       quote.innerHTML = quoteText;
       if (quoteAuthor === null) {
         author.innerHTML = "- " + "Anonymous" + " -";
@@ -36,11 +39,9 @@ function generateQuote() {
     });
   tweetBtn.addEventListener("click", shareTweet);
 
-  shareTweet();
-
   function shareTweet(event) {
     const twitterUrl =
-      "https://twitter.com/intent/tweet?text=${quoteText} -${quoteAuthor}";
+      `https://twitter.com/intent/tweet?text=${quoteText} -${quoteAuthor}`;
     window.open(twitterUrl, "_blank");
   }
 }
