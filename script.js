@@ -36,11 +36,10 @@ function generateQuote() {
     });
   tweetBtn.addEventListener("click", shareTweet);
 
-  shareTweet();
-
   function shareTweet(event) {
-    const twitterUrl =
-      "https://twitter.com/intent/tweet?text=${quoteText} -${quoteAuthor}";
+    var quoteText = quote.innerText;
+    var quoteAuthor = author.innerText;
+    const twitterUrl = `https://twitter.com/intent/tweet?text=${quoteText} -${quoteAuthor} https://flamboyant-ptolemy-5e6dba.netlify.app`;
     window.open(twitterUrl, "_blank");
   }
 }
